@@ -9,7 +9,7 @@ server.use(express.json()) //Possibilidade de usar JSON
 
 server.use(bodyParser.urlencoded({extended:true}))
 
-server.get('/home', (req, res) => {
+server.get('/', (req, res) => {
    res.sendFile(path.join(__dirname, 'views/index.html'))
 })
 server.get('/registro', (req, res) => {
