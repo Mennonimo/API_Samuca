@@ -9,26 +9,18 @@ server.use(express.json()) //Possibilidade de usar JSON
 
 server.use(bodyParser.urlencoded({extended:true}))
 
-server.get('/cadastro', (req, res) => {
+server.get('/home', (req, res) => {
    res.sendFile(path.join(__dirname, 'views/index.html'))
 })
-server.post('/cadastro', (req, res)=>{
-    console.log(req.body)
-    const {email, name} = req.body
-    //CAdastro os dados no banco de dados!
-
-    if (email !== 'muca@email.com') {
-         return res.sendFile(path.join(__dirname, 'views/404.html'))
-    }
-    res.sendFile(path.join(__dirname, 'views/home.html'))
-})
-server.get('/pets', (req,res)=> {
-    res.send({
-        name: "Meu gato",
-        idade: "4 anos",
-        peso: "300kg"
-    })
-})
+server.get('/registro', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/registrar.html'))
+ })
+ server.get('/loja', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/loja/loja.html'))
+ })
+ server.get('/lista', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/lista/lista.html'))
+ })
 server.listen(3000, () => {
     console.log("servidor no ar...")
 })
